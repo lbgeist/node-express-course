@@ -4,6 +4,9 @@ require('express-async-errors');
 const express = require('express');
 const app = express();
 
+const mainRouter = require('./routes/main');
+
+app.use('/api/v1', mainRouter);
 const notFoundMiddleware = require('./middleware/not-found');
 const errorHandlerMiddleware = require('./middleware/error-handler');
 
