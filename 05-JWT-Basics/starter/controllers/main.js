@@ -6,6 +6,7 @@
 
 const jwt = require('jsonwebtoken');
 const customAPIError = require('../errors/custom-error'); // setup in task manager project
+const { BadRequestError } = require('../errors');
 
 const login = async (req, res) => {
   const { username, password } = req.body;
@@ -15,7 +16,7 @@ const login = async (req, res) => {
   // Joi - package for validation in front of all requests, for later projects
   // checking for username, password provided within controller. If not provided, error response
   if (!username || !password) {
-    throw new customAPIError('Please provide email and password', 400);
+    throw new BadRequestError('Please provide email and password');
   }
 
   // just for demo, normally provided by DB
@@ -32,8 +33,6 @@ const login = async (req, res) => {
 };
 
 const dashboard = async (req, res) => {
-  console.log(req.user);
-
   const luckyNumber = Math.floor(Math.random() * 100);
   res.status(200).json({
     msg: `Hello, ${req.user.username}`,

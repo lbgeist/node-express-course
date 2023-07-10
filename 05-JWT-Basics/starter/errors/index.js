@@ -1,0 +1,11 @@
+// allows for one place to track all the errors instead of having to go to each error file.
+
+const CustomAPIError = require('./custom-error');
+const BadRequestError = require('./bad-request');
+const UnauthenticatedError = require('./unauthenticated');
+
+module.exports = {
+  CustomAPIError,
+  BadRequestError,
+  UnauthenticatedError,
+};

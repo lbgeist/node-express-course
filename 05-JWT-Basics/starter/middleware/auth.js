@@ -1,12 +1,14 @@
 const jwt = require('jsonwebtoken');
-const customAPIError = require('../errors/custom-error'); // setup in task manager project
+// const customAPIError = require('../errors/custom-error'); // setup in task manager project
+const { UnauthenticatedError } = require('../errors');
 
+// allows you to use authentication wherever without having to rewrite the code
 const authenticationMiddleware = async (req, res, next) => {
   const authHeader = req.headers.authorization;
 
   // check for token
   if (!authHeader || !authHeader.startsWith('Bearer ')) {
-    throw new customAPIError('No token provided', 401);
+    throw new UnauthenticatedError('No token provided');
   }
 
   // pull out 2nd item in authHeader
@@ -19,7 +21,7 @@ const authenticationMiddleware = async (req, res, next) => {
     req.user = { id, username };
     next();
   } catch (error) {
-    throw new customAPIError('Not authorized to access this route', 401); // 401 is auth error
+    throw new UnauthenticatedError('Not authorized to access this route');
   }
 };
 
