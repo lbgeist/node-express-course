@@ -1,0 +1,12 @@
+To install a package as a Dev Dependency add -D or --save-dev to the end of the install string. 
+
+eg: npm i nodemon -D
+npm i nodemon --save-dev
+
+To uninstall a package: npm uninstall packageName
+OR
+1. remove node_modules folder
+2. remove package-lock.json
+3. remove dependency from package.json
+
+
