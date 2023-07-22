@@ -8,5 +8,8 @@ OR
 1. remove node_modules folder
 2. remove package-lock.json
 3. remove dependency from package.json
+4. re-run npm install
 
+remove git folder from a project:
+mac: rm -rf .git
 
