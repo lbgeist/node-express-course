@@ -1,15 +1,25 @@
 To install a package as a Dev Dependency add -D or --save-dev to the end of the install string. 
+  npm i nodemon -D
+  npm i nodemon --save-dev
 
-eg: npm i nodemon -D
-npm i nodemon --save-dev
-
-To uninstall a package: npm uninstall packageName
+To uninstall a package: 
+  npm uninstall packageName
 OR
-1. remove node_modules folder
-2. remove package-lock.json
-3. remove dependency from package.json
-4. re-run npm install
+  1. remove node_modules folder
+  2. remove package-lock.json
+  3. remove dependency from package.json
+  4. re-run npm install
 
 remove git folder from a project:
-mac: rm -rf .git
+  mac: rm -rf .git
+
+running install and start at the same time:
+  npm install && npm start
+
+
+
+
+
+Things to research more:
+API vs SSR in Express
 
